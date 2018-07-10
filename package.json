@@ -30,7 +30,8 @@
   "homepage": "https://github.com/blockades/dark-crystal-schemas#readme",
   "dependencies": {
     "is-my-json-valid": "^2.17.2",
-    "ssb-ref": "^2.11.1"
+    "ssb-ref": "^2.11.1",
+    "ssb-schema-definitions": "^1.0.0"
   },
   "devDependencies": {
     "scuttle-testbot": "^1.1.6",
