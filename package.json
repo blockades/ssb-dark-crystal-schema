@@ -1,0 +1,29 @@
+{
+  "name": "dark-crystal",
+  "version": "0.0.1",
+  "description": "socially share your secrets in your scuttlebutt web of trust",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/**/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blockades/dark-crystal.git"
+  },
+  "keywords": [
+    "darkcrystal",
+    "shamir",
+    "secrets",
+    "scuttlebutt",
+    "social",
+    "secret",
+    "sharing",
+    "shard"
+  ],
+  "author": "MMT",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blockades/dark-crystal/issues"
+  },
+  "homepage": "https://github.com/blockades/dark-crystal#readme"
+}
