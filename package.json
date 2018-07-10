@@ -1,14 +1,14 @@
 {
-  "name": "dark-crystal",
+  "name": "dark-crystal-schemas",
   "version": "0.0.1",
-  "description": "socially share your secrets in your scuttlebutt web of trust",
+  "description": "JSON schemas and validation for secure scuttlebutt message types for Dark Crypstal",
   "main": "index.js",
   "scripts": {
     "test": "tape test/**/*.test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/blockades/dark-crystal.git"
+    "url": "git+https://github.com/blockades/dark-crystal-schemas.git"
   },
   "keywords": [
     "darkcrystal",
@@ -18,12 +18,24 @@
     "social",
     "secret",
     "sharing",
-    "shard"
+    "shard",
+    "schema",
+    "validation"
   ],
   "author": "MMT",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/blockades/dark-crystal/issues"
+    "url": "https://github.com/blockades/dark-crystal-schemas/issues"
   },
-  "homepage": "https://github.com/blockades/dark-crystal#readme"
+  "homepage": "https://github.com/blockades/dark-crystal-schemas#readme",
+  "dependencies": {
+    "is-my-json-valid": "^2.17.2",
+    "ssb-ref": "^2.11.1"
+  },
+  "devDependencies": {
+    "scuttle-testbot": "^1.1.6",
+    "tap-diff": "^0.1.1",
+    "tape": "^4.9.1",
+    "tape-plus": "^1.0.0"
+  }
 }
