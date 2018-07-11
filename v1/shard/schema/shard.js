@@ -17,9 +17,7 @@ module.exports = {
     },
     root: { $ref: '#/definitions/messageId' },
     shard: { type: 'string' },
-    recps: {  
-    // a shard should have exactly one recipient
-    // how to verify this?
+    recps: {
       type: 'array',
       items: {
         oneOf: [
