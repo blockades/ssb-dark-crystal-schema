@@ -18,16 +18,7 @@ module.exports = {
     quorum: { type: 'number' },
     shards: { type: 'number' },
     tool: { type: 'string' },
-    recps: {
-      type: 'array',
-      items: {
-        oneOf: [
-          { type: 'null' },
-          { $ref: '#/definitions/feedId' },
-          { $ref: '#/definitions/feed' }
-        ]
-      }
-    }
+    recps: { $ref: '#/definitions/recps' }
   },
   definitions: definitions
 }

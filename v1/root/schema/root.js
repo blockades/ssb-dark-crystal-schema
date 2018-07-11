@@ -4,7 +4,7 @@ const SCHEMA_VERSION = 1 // require(' can you fill me innn ')
 module.exports = {
   $schema: 'http://json-schema.org/schema#',
   type: 'object',
-  required: ['type', 'version', 'name'],
+  required: ['type', 'version', 'name', 'recps'],
   properties: {
     type: {
       type: 'string',
@@ -15,16 +15,7 @@ module.exports = {
       pattern: `^${SCHEMA_VERSION}$`
     },
     name: { type: 'string' },
-    recps: {
-      type: 'array',
-      items: {
-        oneOf: [
-          { type: 'null' },
-          { $ref: '#/definitions/feedId' },
-          { $ref: '#/definitions/feed' }
-        ]
-      }
-    }
+    recps: { $ref: '#/definitions/recps' }
   },
   definitions: definitions
 }
