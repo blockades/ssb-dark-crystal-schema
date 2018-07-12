@@ -16,7 +16,7 @@ module.exports = {
       pattern: `^${SCHEMA_VERSION}$`
     },
     root: { $ref: '#/definitions/messageId' },
-    shard: { type: 'string' },
+    shard: { $ref: '#/definitions/encrypt/box' },
     recps: {
       type: 'array',
       // maxItems: 2,
@@ -31,3 +31,4 @@ module.exports = {
   },
   definitions: definitions
 }
+
