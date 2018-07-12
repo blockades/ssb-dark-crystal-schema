@@ -19,8 +19,8 @@ module.exports = {
     shard: { $ref: '#/definitions/encrypt/box' },
     recps: {
       type: 'array',
-      // maxItems: 2,
-      // minItems: 2,
+      maxItems: 2,
+      minItems: 2,
       items: {
         oneOf: [
           { $ref: '#/definitions/feedId' },
