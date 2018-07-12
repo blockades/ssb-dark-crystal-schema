@@ -41,20 +41,20 @@ describe('dark-crystal/shard schema', context => {
   })
 
   context('invalid shard', assert => {
-    shard.shard = { shard: 'notblah' }
+    shard.shard = 'foo' 
     assert.notOk(validate(shard))
     assert.notOk(isShard(shard))
 
     var errors = shard.errors.map(e => `${e.field}: ${e.message}`)
-    assert.deepEqual(errors, ['data.shard: is the wrong type'])
+    assert.deepEqual(errors, ['data.shard: referenced schema does not match'])
   })
 
   context('invalid recps', assert => {
-    shard.recps = ['thisisnotafeedId']
+    shard.recps = ['thisisnotafeedId','nor is this']
     assert.notOk(validate(shard))
     assert.notOk(isShard(shard))
 
     var errors = shard.errors.map(e => `${e.field}: ${e.message}`)
-    assert.deepEqual(errors, ['data.recps.0: no (or more than one) schemas match'])
+    assert.deepEqual(errors, ['data.recps.0: no (or more than one) schemas match', 'data.recps.1: no (or more than one) schemas match'])
   })
 })
