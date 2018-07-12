@@ -15,7 +15,17 @@ module.exports = {
       pattern: `^${SCHEMA_VERSION}$`
     },
     name: { type: 'string' },
-    recps: { $ref: '#/definitions/recps' }
+    recps: {
+      type: 'array',
+      minItems: 1,
+      maxItems: 1,
+      items: {
+        oneOf: [
+          { $ref: '#/definitions/feedId' },
+          { $ref: '#/definitions/mentions/feed' }
+        ]
+      }
+    }
   },
   definitions: definitions
 }
