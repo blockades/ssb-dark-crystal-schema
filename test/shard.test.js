@@ -46,7 +46,7 @@ describe('dark-crystal/shard schema', context => {
     assert.notOk(isShard(shard))
 
     var errors = shard.errors.map(e => `${e.field}: ${e.message}`)
-    assert.deepEqual(errors, ['data.name: is the wrong type'])
+    assert.deepEqual(errors, ['data.shard: is the wrong type'])
   })
 
   context('invalid recps', assert => {
@@ -55,6 +55,6 @@ describe('dark-crystal/shard schema', context => {
     assert.notOk(isShard(shard))
 
     var errors = shard.errors.map(e => `${e.field}: ${e.message}`)
-    assert.deepEqual(errors, ['data.recps: referenced schema does not match'])
+    assert.deepEqual(errors, ['data.recps.0: no (or more than one) schemas match'])
   })
 })
