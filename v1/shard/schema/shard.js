@@ -23,9 +23,8 @@ module.exports = {
       minItems: 2,
       items: {
         oneOf: [
-          { type: 'null' },
           { $ref: '#/definitions/feedId' },
-          { $ref: '#/definitions/feed' }
+          { $ref: '#/definitions/mentions/feed' }
         ]
       }
     }
