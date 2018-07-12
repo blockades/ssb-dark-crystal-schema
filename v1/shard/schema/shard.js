@@ -19,6 +19,8 @@ module.exports = {
     shard: { type: 'string' },
     recps: {
       type: 'array',
+      maxItems: 2,
+      minItems: 2,
       items: {
         oneOf: [
           { type: 'null' },
