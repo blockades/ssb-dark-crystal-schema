@@ -1,5 +1,5 @@
 const definitions = require('ssb-schema-definitions')
-const SCHEMA_VERSION = 1 // require(' can you fill me innn ')
+const SCHEMA_VERSION = 1
 
 module.exports = {
   $schema: 'http://json-schema.org/schema#',
