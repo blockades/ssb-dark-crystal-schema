@@ -15,8 +15,14 @@ module.exports = {
       pattern: `^${SCHEMA_VERSION}$`
     },
     root: { $ref: '#/definitions/messageId' },
-    quorum: { type: 'integer' },
-    shards: { type: 'integer' },
+    quorum: { 
+      type: 'integer',
+      minimum: 2
+    },
+    shards: {
+      type: 'integer',
+      minimum: 2
+    },
     tool: { type: 'string' },
     recps: { $ref: '#/definitions/recps' }
   },
