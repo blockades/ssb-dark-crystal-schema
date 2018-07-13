@@ -3,6 +3,7 @@ const { describe } = require('tape-plus')
 const validator = require('is-my-json-valid')
 const schema = require('../v1/root/schema/root')
 const validate = validator(schema, { verbose: true })
+const errorParser = require('../v1/lib/errorParser')
 
 const { isRoot } = require('../v1/')
 
@@ -26,35 +27,32 @@ describe('dark-crystal/root schema', context => {
     root.type = 'dark-smchystal/root'
     assert.notOk(validate(root))
     assert.notOk(isRoot(root))
-
-    var errors = root.errors.map(e => `${e.field}: ${e.message}`)
-    assert.deepEqual(errors, ['data.type: pattern mismatch'])
+    assert.deepEqual(['data.type: pattern mismatch'], errorParser(root))
   })
 
   context('invalid version', assert => {
     root.version = 1
     assert.notOk(validate(root))
     assert.notOk(isRoot(root))
-
-    var errors = root.errors.map(e => `${e.field}: ${e.message}`)
-    assert.deepEqual(errors, ['data.version: is the wrong type'])
+    assert.deepEqual(['data.version: is the wrong type'], errorParser(root))
   })
 
   context('invalid name', assert => {
     root.name = { name: 'this is my name' }
     assert.notOk(validate(root))
     assert.notOk(isRoot(root))
-
-    var errors = root.errors.map(e => `${e.field}: ${e.message}`)
-    assert.deepEqual(errors, ['data.name: is the wrong type'])
+    assert.deepEqual(['data.name: is the wrong type'], errorParser(root))
   })
 
   context('invalid recps', assert => {
+    root.recps = [...root.recps, ...root.recps]
+    assert.notOk(validate(root))
+    assert.notOk(isRoot(root))
+    assert.deepEqual(['data.recps: has more items than allowed'], errorParser(root))
+
     root.recps = ['thisisnotafeedId']
     assert.notOk(validate(root))
     assert.notOk(isRoot(root))
-
-    var errors = root.errors.map(e => `${e.field}: ${e.message}`)
-    assert.deepEqual(errors, ['data.recps: referenced schema does not match'])
+    assert.deepEqual(['data.recps.0: no (or more than one) schemas match'], errorParser(root))
   })
 })
