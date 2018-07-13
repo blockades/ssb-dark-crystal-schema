@@ -48,6 +48,12 @@ describe('dark-crystal/ritual schema', context => {
 
     var errors = ritual.errors.map(e => `${e.field}: ${e.message}`)
     assert.deepEqual(errors, ['data.quorum: is the wrong type'])
+
+    ritual.quorum = 3.2
+    assert.notOk(isRitual(ritual))
+
+    ritual.quorum = 1
+    assert.notOk(isRitual(ritual))
   })
 
   context('invalid shards', assert => {
@@ -57,6 +63,9 @@ describe('dark-crystal/ritual schema', context => {
 
     var errors = ritual.errors.map(e => `${e.field}: ${e.message}`)
     assert.deepEqual(errors, ['data.shards: is the wrong type'])
+
+    ritual.shards = 1
+    assert.notOk(isRitual(ritual))
   })
 
   context('invalid tool', assert => {
