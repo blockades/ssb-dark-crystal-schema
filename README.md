@@ -20,7 +20,7 @@ Example:
 
 ### `ritual`
 
-This message will also be published exactly once for each shared secret.  It will contain a reference to the `root` message, the required of shards to reconstruct the secret (quorum), which must be at least 2, the total number of shards, which must also be at least two, and a description of the software tool used to create the shards.  It will be a private message with exactly one recipient which should be the author of the message.
+This message will also be published exactly once for each shared secret.  It will contain a reference to the `root` message, the required number of shards to reconstruct the secret (quorum), which must be at least 2, the total number of shards, which must be less than or equal to the total number of shards, and a description of the software tool used to create the shards.  It will be a private message with exactly one recipient which should be the author of the message.
 
 Example:
 
