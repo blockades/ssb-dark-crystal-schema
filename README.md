@@ -1,7 +1,21 @@
-# dark-crystal-schemas
+# ssb-dark-crystal-schema
+
 JSON schemas and validation for secure scuttlebutt message types for Dark Crystal.  
 
 All message will contain a version number of the schema.
+
+## API
+
+```js
+const { isRoot, isRitual, isShard } = require('ssb-dark-ritual-schema')
+
+isRitual(msg)
+// => true
+```
+
+All validators can accept either msg or msgContent
+
+## Schemas
 
 ### `root`
 
@@ -52,3 +66,5 @@ Example:
   "recps": ["@95WQAJ1XZju4YFpLib3JYdbx//BCtr5dq3bR9jPxYWs=.ed25519", "@95WQAJ1XZju4YFpLib3JYdbx//BCtr5dq3bR9jPxYWs=.ed25519"]
 }
 ```
+
+
