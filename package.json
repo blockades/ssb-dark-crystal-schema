@@ -1,6 +1,6 @@
 {
   "name": "ssb-dark-crystal-schema",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "JSON schemas and validation for secure scuttlebutt message types for Dark Crypstal",
   "main": "index.js",
   "scripts": {
