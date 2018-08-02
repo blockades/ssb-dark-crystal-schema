@@ -14,7 +14,10 @@ module.exports = {
       type: 'string',
       pattern: `^${SCHEMA_VERSION}$`
     },
-    name: { type: 'string' },
+    name: {
+      type: 'string',
+      pattern: '^[a-zA-Z0-9_.-]*$'
+    },
     recps: {
       type: 'array',
       minItems: 1,
