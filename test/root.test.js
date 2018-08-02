@@ -38,10 +38,10 @@ describe('dark-crystal/root schema', context => {
   })
 
   context('invalid name', assert => {
-    root.name = { name: 'this is my name' }
+    root.name = 'this is my name'
     assert.notOk(validate(root))
     assert.notOk(isRoot(root))
-    assert.deepEqual(['data.name: is the wrong type'], errorParser(root))
+    assert.deepEqual(['data.name: pattern mismatch'], errorParser(root))
   })
 
   context('invalid recps', assert => {
