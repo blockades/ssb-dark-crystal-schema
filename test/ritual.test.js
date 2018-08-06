@@ -20,8 +20,13 @@ describe('dark-crystal/ritual schema', context => {
   context('invalid type', assert => {
     ritual.type = 'dark-smchystal/ritual'
     assert.notOk(isRitual(ritual))
-
     assert.deepEqual(errorParser(isRitual), ['data.type: pattern mismatch'])
+  })
+
+  context('can attach errors to tested object', assert => {
+    ritual.type = 'dark-smchystal/ritual'
+    assert.notOk(isRitual(ritual, {attachErrors: true}))
+    assert.deepEqual(errorParser(ritual), ['data.type: pattern mismatch'])
   })
 
   context('invalid version', assert => {
