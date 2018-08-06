@@ -1,12 +1,16 @@
-const validator = require('is-my-json-valid')
+const Validator = require('is-my-json-valid')
 const getContent = require('ssb-msg-content')
 
 module.exports = function (schema) {
-  const validate = validator(schema, { verbose: true })
+  const validator = Validator(schema, { verbose: true })
 
-  return function (obj) {
-    var result = validate(getContent(obj))
-    if (validate.errors) obj.errors = validate.errors
+  return function validatorWithErrors (obj, opts = {}) {
+    const result = validator(getContent(obj))
+
+    // exposes error messages provided by is-my-json-valid
+    validatorWithErrors.errors = validator.errors
+    if (opts.attachErrors) obj.errors = validator.errors
+
     return result
   }
 }

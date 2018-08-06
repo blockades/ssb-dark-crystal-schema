@@ -9,11 +9,24 @@ All message will contain a version number of the schema.
 ```js
 const { isRoot, isRitual, isShard } = require('ssb-dark-ritual-schema')
 
-isRitual(msg)
+isRitual(ritualMessage)
 // => true
+
+isRitual(someMessage)
+// => false
+
+console.log(isRitual.errors)
+// => validation error messages
+
 ```
 
-All validators can accept either msg or msgContent
+All validators can accept either msg or msgContent.
+
+If you'd like validators to attach errors to the original message you can run them like this: 
+
+```js
+isRitual(someMessage, {attachErrors: true})
+
 
 ## Schemas
 
