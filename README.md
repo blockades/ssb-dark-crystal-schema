@@ -26,7 +26,7 @@ If you'd like validators to attach errors to the original message you can run th
 
 ```js
 isRitual(someMessage, {attachErrors: true})
-
+```
 
 ## Schemas
 
