@@ -3,7 +3,7 @@ const { describe } = require('tape-plus')
 const { isRitual } = require('../../v2/')
 const errorParser = require('../../v2/lib/errorParser')
 
-describe('dark-crystal/ritual schema', context => {
+describe('dark-crystal/ritual schema v2', context => {
   let ritual
 
   context.beforeEach(c => {

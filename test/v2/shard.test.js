@@ -3,7 +3,7 @@ const { describe } = require('tape-plus')
 const { isShard } = require('../../v2/')
 const errorParser = require('../../v2/lib/errorParser')
 
-describe('dark-crystal/shard schema', context => {
+describe('dark-crystal/shard schema v2', context => {
   let shard
 
   context.beforeEach(c => {

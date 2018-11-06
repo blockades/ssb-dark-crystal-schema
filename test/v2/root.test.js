@@ -3,7 +3,7 @@ const { describe } = require('tape-plus')
 const errorParser = require('../../v2/lib/errorParser')
 const { isRoot } = require('../../v2/')
 
-describe('dark-crystal/root schema', context => {
+describe('dark-crystal/root schema v2', context => {
   let root
 
   context.beforeEach(c => {
