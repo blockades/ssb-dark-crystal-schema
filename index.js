@@ -3,6 +3,7 @@ const getContent = require('ssb-msg-content')
 
 const isRoot = (msg) => {
   const content = getContent(msg)
+  const version = versions[content.message]
   return version !== undefined && version.isRoot(msg)
 }
 
