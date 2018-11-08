@@ -12,7 +12,7 @@ describe('dark-crystal/shard schema', context => {
 
   context('shard is valid', assert => {
     assert.ok(isShard(shard))
-    
+
     shard.recps.map(recp => { return { link: recp, name: 'Bobo the Clown' } })
     assert.ok(isShard(shard))
   })
@@ -28,11 +28,11 @@ describe('dark-crystal/shard schema', context => {
     shard.version = 1
     assert.notOk(isShard(shard))
 
-    assert.deepEqual(errorParser(isShard), ['data.version: is the wrong type'])
+    assert.deepEqual(errorParser(isShard), ['data.version: is not present'])
   })
 
   context('invalid shard', assert => {
-    shard.shard = 'foo' 
+    shard.shard = 'foo'
     assert.notOk(isShard(shard))
 
     assert.deepEqual(errorParser(isShard), ['data.shard: referenced schema does not match'])
