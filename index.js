@@ -1,29 +1,20 @@
 const { currentVersion, versions }= require('./versions')
 const getContent = require('ssb-msg-content')
 
-const isRoot = (msg) => {
-  const content = getContent(msg)
-  const version = versions[content.message]
-  return version !== undefined && version.isRoot(msg)
+const getValidator = (fn) => {
+  return (msg) => {
+    const content = getContent(msg)
+    const version = versions[content.message]
+    return version !== undefined && version[fn](msg)
+  }
 }
 
-const isRitual = (msg) => {
-  const content = getContent(msg)
-  const version = versions[content.message]
-  return version !== undefined && version.isRitual(msg)
-}
-
-const isShard = (msg) => {
-  const content = getContent(msg)
-  const version = versions[content.message]
-  return version !== undefined && version.isShard(msg)
-}
-
-// %%TODO%% Refactor into a fn that returns the correct fn
+const validators = ['isRoot', 'isRitual', 'isShard'].reduce((obj, fn) => {
+  obj[fn] = getValidator(fn)
+  return obj
+}, {})
 
 module.exports = {
-  isShard,
-  isRoot,
-  isRitual,
+  ...validators,
   SCHEMA_VERSION: currentVersion()
 }
