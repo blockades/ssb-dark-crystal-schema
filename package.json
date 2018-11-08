@@ -4,7 +4,7 @@
   "description": "JSON schemas and validation for secure scuttlebutt message types for Dark Crystal",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/**/*.test.js | tap-diff"
+    "test": "tape 'test/**/*.test.js' | tap-diff"
   },
   "repository": {
     "type": "git",
