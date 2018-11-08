@@ -26,7 +26,7 @@ describe('dark-crystal/root schema', context => {
   context('invalid version', assert => {
     root.version = 1
     assert.notOk(isRoot(root))
-    assert.deepEqual(['data.version: is the wrong type'], errorParser(isRoot))
+    assert.deepEqual(['data.version: is not present'], errorParser(isRoot))
   })
 
   context('invalid name', assert => {
