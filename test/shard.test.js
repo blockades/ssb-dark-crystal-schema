@@ -1,7 +1,7 @@
 const fs = require('fs')
 const { describe } = require('tape-plus')
-const { isShard } = require('../v1/')
-const errorParser = require('../v1/lib/errorParser')
+const errorParser = require('../lib/errorParser')
+const { isShard } = require('../')
 
 describe('dark-crystal/shard schema', context => {
   let shard

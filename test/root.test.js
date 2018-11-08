@@ -1,7 +1,7 @@
 const fs = require('fs')
 const { describe } = require('tape-plus')
-const errorParser = require('../v1/lib/errorParser')
-const { isRoot } = require('../v1/')
+const errorParser = require('../lib/errorParser')
+const { isRoot } = require('../')
 
 describe('dark-crystal/root schema', context => {
   let root
