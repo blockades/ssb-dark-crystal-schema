@@ -1,4 +1,4 @@
-const versions = require('./versions')
+const { currentVersion, versions }= require('./versions')
 const getContent = require('ssb-msg-content')
 
 const isRoot = (msg) => {
@@ -23,5 +23,6 @@ const isShard = (msg) => {
 module.exports = {
   isShard,
   isRoot,
-  isRitual
+  isRitual,
+  SCHEMA_VERSION: currentVersion()
 }
