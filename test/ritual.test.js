@@ -1,7 +1,7 @@
 const fs = require('fs')
 const { describe } = require('tape-plus')
-const { isRitual } = require('../v1/')
-const errorParser = require('../v1/lib/errorParser')
+const errorParser = require('../lib/errorParser')
+const { isRitual } = require('../')
 
 describe('dark-crystal/ritual schema', context => {
   let ritual
@@ -18,18 +18,21 @@ describe('dark-crystal/ritual schema', context => {
   })
 
   context('invalid type', assert => {
+    console.log("TYPE")
     ritual.type = 'dark-smchystal/ritual'
     assert.notOk(isRitual(ritual))
     assert.deepEqual(errorParser(isRitual), ['data.type: pattern mismatch'])
   })
 
   context('can attach errors to tested object', assert => {
+    console.log("ERRORS")
     ritual.type = 'dark-smchystal/ritual'
     assert.notOk(isRitual(ritual, {attachErrors: true}))
     assert.deepEqual(errorParser(ritual), ['data.type: pattern mismatch'])
   })
 
   context('invalid version', assert => {
+    console.log("VERSION")
     ritual.version = 1
     assert.notOk(isRitual(ritual))
 
@@ -37,6 +40,7 @@ describe('dark-crystal/ritual schema', context => {
   })
 
   context('invalid quorum', assert => {
+    console.log("QUORUM")
     ritual.quorum = "3"
     assert.notOk(isRitual(ritual))
 
@@ -50,6 +54,7 @@ describe('dark-crystal/ritual schema', context => {
   })
 
   context('invalid shards', assert => {
+    console.log("SHARDS")
     ritual.shards = "3"
     assert.notOk(isRitual(ritual))
 
@@ -60,6 +65,7 @@ describe('dark-crystal/ritual schema', context => {
   })
 
   context('invalid tool', assert => {
+    console.log("TOOL")
     ritual.tool = { library: 'secrets.js' }
     assert.notOk(isRitual(ritual))
 
@@ -67,6 +73,7 @@ describe('dark-crystal/ritual schema', context => {
   })
 
   context('invalid recps', assert => {
+    console.log("RECPS")
     ritual.recps = ['thisisnotafeedId']
     assert.notOk(isRitual(ritual))
 
