@@ -32,10 +32,10 @@ describe('dark-crystal/forward schema', context => {
   })
 
   context('invalid shard', assert => {
-    forward.shard = "foo"
+    forward.shard = 2
     assert.notOk(isForward(forward))
 
-    assert.deepEqual(errorParser(isForward), ['data.shard: referenced schema does not match'])
+    assert.deepEqual(errorParser(isForward), ['data.shard: is the wrong type'])
   })
 
   context('invalid recps', assert => {
