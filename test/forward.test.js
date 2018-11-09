@@ -1,7 +1,7 @@
 const fs = require('fs')
 const { describe } = require('tape-plus')
-const { isForward } = require('../v1/')
-const errorParser = require('../v1/lib/errorParser')
+const { isForward } = require('../')
+const errorParser = require('../lib/errorParser')
 
 describe('dark-crystal/forward schema', context => {
   let forward
@@ -11,9 +11,6 @@ describe('dark-crystal/forward schema', context => {
   })
 
   context('forward is valid', assert => {
-    assert.ok(isForward(forward))
-
-    forward.recps.map(recp => { return { link: recp, name: 'Bobo the Clown' } })
     assert.ok(isForward(forward))
   })
 
@@ -28,7 +25,7 @@ describe('dark-crystal/forward schema', context => {
     forward.version = 1
     assert.notOk(isForward(forward))
 
-    assert.deepEqual(errorParser(isForward), ['data.version: is the wrong type'])
+    assert.deepEqual(errorParser(isForward), ['data.version: is not a valid version'])
   })
 
   context('invalid shard', assert => {
