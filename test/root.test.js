@@ -12,9 +12,6 @@ describe('dark-crystal/root schema', context => {
 
   context('root is valid', assert => {
     assert.ok(isRoot(root))
-
-    root.recps.map(recp => { return { link: recp, name: 'Bobo the Clown' } })
-    assert.ok(isRoot(root))
   })
 
   context('invalid type', assert => {
@@ -26,7 +23,7 @@ describe('dark-crystal/root schema', context => {
   context('invalid version', assert => {
     root.version = 1
     assert.notOk(isRoot(root))
-    assert.deepEqual(['data.version: is not present'], errorParser(isRoot))
+    assert.deepEqual(['data.version: is not a valid version'], errorParser(isRoot))
   })
 
   context('invalid name', assert => {

@@ -12,10 +12,13 @@ describe('dark-crystal/ritual schema', context => {
 
   context('is valid', assert => {
     assert.ok(isRitual(ritual))
+  })
 
-    ritual.recps.map(recp => { return { link: recp, name: 'Bobo the Clown' } })
+  context('valid version', assert => {
+    ritual.version = "2.0.0"
     assert.ok(isRitual(ritual))
   })
+
 
   context('invalid type', assert => {
     ritual.type = 'dark-smchystal/ritual'
@@ -33,7 +36,7 @@ describe('dark-crystal/ritual schema', context => {
     ritual.version = 1
     assert.notOk(isRitual(ritual))
 
-    assert.deepEqual(errorParser(isRitual), ['data.version: is not present'])
+    assert.deepEqual(errorParser(isRitual), ['data.version: is not a valid version'])
   })
 
   context('invalid quorum', assert => {

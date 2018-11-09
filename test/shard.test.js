@@ -28,7 +28,7 @@ describe('dark-crystal/shard schema', context => {
     shard.version = 1
     assert.notOk(isShard(shard))
 
-    assert.deepEqual(errorParser(isShard), ['data.version: is not present'])
+    assert.deepEqual(errorParser(isShard), ['data.version: is not a valid version'])
   })
 
   context('invalid shard', assert => {
