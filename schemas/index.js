@@ -1,8 +1,4 @@
-const V1_SCHEMA_VERSION = "1.0.0"
-const V2_SCHEMA_VERSION = "2.0.0"
-
-const versions = {
+module.exports = {
   "1.0.0": require('./v1'),
+  "2.0.0": require('./v2')
 }
-
-module.exports = (version) => versions[version]
