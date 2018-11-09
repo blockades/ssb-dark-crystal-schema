@@ -1,17 +1,20 @@
-const schemaFinder = require('../lib/schemaFinder')
+const findSchemaByName = require('../lib/schemaFinder')
 const validator = require('../lib/validator')
 const getContent = require('ssb-msg-content')
 
 module.exports = function isRitual (msg, opts = {}) {
+  isRitual.errors = []
   const content = getContent(msg)
-  var schema = schemaFinder('ritual')(content)
-  if (!schema) {
-    isRitual.errors = [{ field: 'data.version', message: 'is not present' }]
-    return false
-  }
+  var findSchemaByVersion = findSchemaByName('ritual')
+  var schema = findSchemaByVersion(content)
 
-  var validate = validator(schema)
-  var result = validate(msg, opts)
-  isRitual.errors = validate.errors
-  return result
+  if (!schema) {
+    isRitual.errors = isRitual.errors.concat(findSchemaByVersion.errors)
+    return false
+  } else {
+    var validate = validator(schema)
+    var result = validate(msg, opts)
+    isRitual.errors = validate.errors
+    return result
+  }
 }
