@@ -1,8 +1,7 @@
-const versions = require('./schemas/versions')
 const validators = require('./validators')
-const SCHEMA_VERSION = require('./version')
+const { currentVersion }= require('./schemas')
 
 module.exports = {
   ...validators,
-  SCHEMA_VERSION
+  SCHEMA_VERSION: currentVersion()
 }
