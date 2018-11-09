@@ -12,9 +12,6 @@ describe('dark-crystal/shard schema', context => {
 
   context('shard is valid', assert => {
     assert.ok(isShard(shard))
-
-    shard.recps.map(recp => { return { link: recp, name: 'Bobo the Clown' } })
-    assert.ok(isShard(shard))
   })
 
   context('invalid type', assert => {
