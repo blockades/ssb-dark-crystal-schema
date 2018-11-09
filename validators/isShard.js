@@ -10,6 +10,7 @@ module.exports = function isShard (msg, opts = {}) {
 
   if (!schema) {
     isShard.errors = isShard.errors.concat(findSchemaByVersion.errors)
+    if (opts.attachErrors) msg.errors = isShard.errors
     return false
   } else {
     var validate = validator(schema)

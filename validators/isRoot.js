@@ -10,6 +10,7 @@ module.exports = function isRoot (msg, opts = {}) {
 
   if (!schema) {
     isRoot.errors = isRoot.errors.concat(findSchemaByVersion.errors)
+    if (opts.attachErrors) msg.errors = isRoot.errors
     return false
   } else {
     var validate = validator(schema)

@@ -10,6 +10,7 @@ module.exports = function isRitual (msg, opts = {}) {
 
   if (!schema) {
     isRitual.errors = isRitual.errors.concat(findSchemaByVersion.errors)
+    if (opts.attachErrors) msg.errors = isRitual.errors
     return false
   } else {
     var validate = validator(schema)
