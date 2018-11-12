@@ -1,6 +1,9 @@
+const validate = require('ssb-schema-validation')
+const schemas = require('../schemas')
+
 module.exports = {
-  isRitual: require('./isRitual'),
-  isRoot: require('./isRoot'),
-  isShard: require('./isShard'),
-  isForward: require('./isForward')
+  isRitual: validate(schemas).with('ritual'),
+  isRoot: validate(schemas).with('root'),
+  isShard: validate(schemas).with('shard'),
+  isForward: validate(schemas).with('forward')
 }

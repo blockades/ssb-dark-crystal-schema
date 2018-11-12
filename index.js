@@ -3,5 +3,5 @@ const { currentVersion }= require('./schemas')
 
 module.exports = {
   ...validators,
-  SCHEMA_VERSION: currentVersion()
+  SCHEMA_VERSION: "1.0.0"
 }

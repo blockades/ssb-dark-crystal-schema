@@ -12,6 +12,8 @@ describe('dark-crystal/root schema', context => {
 
   context('root is valid', assert => {
     assert.ok(isRoot(root))
+    console.log(isRoot.errors)
+    console.log(root)
   })
 
   context('invalid type', assert => {
