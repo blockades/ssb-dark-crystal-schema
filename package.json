@@ -32,7 +32,8 @@
     "is-my-json-valid": "^2.17.2",
     "ssb-msg-content": "^1.0.1",
     "ssb-ref": "^2.11.1",
-    "ssb-schema-definitions": "^1.0.6"
+    "ssb-schema-definitions": "^1.0.6",
+    "ssb-schema-validation": "github:ssbc/ssb-schema-validation"
   },
   "devDependencies": {
     "scuttle-testbot": "^1.1.6",
