@@ -1,4 +1,5 @@
 const definitions = require('ssb-schema-definitions')
+
 const SCHEMA_VERSION = require('./version')
 
 module.exports = {

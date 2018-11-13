@@ -15,7 +15,7 @@ module.exports = {
       pattern: `^${SCHEMA_VERSION}$`
     },
     root: { $ref: '#/definitions/messageId' },
-    quorum: { 
+    quorum: {
       type: 'integer',
       minimum: 2
     },

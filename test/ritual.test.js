@@ -15,10 +15,9 @@ describe('dark-crystal/ritual schema', context => {
   })
 
   context('valid version', assert => {
-    ritual.version = "2.0.0"
+    ritual.version = '2.0.0'
     assert.ok(isRitual(ritual))
   })
-
 
   context('invalid type', assert => {
     ritual.type = 'dark-smchystal/ritual'
@@ -28,7 +27,7 @@ describe('dark-crystal/ritual schema', context => {
 
   context('can attach errors to tested object', assert => {
     ritual.type = 'dark-smchystal/ritual'
-    assert.notOk(isRitual(ritual, {attachErrors: true}))
+    assert.notOk(isRitual(ritual, { attachErrors: true }))
     assert.deepEqual(errorParser(ritual), ['data.type: pattern mismatch'])
   })
 
@@ -40,7 +39,7 @@ describe('dark-crystal/ritual schema', context => {
   })
 
   context('invalid quorum', assert => {
-    ritual.quorum = "3"
+    ritual.quorum = '3'
     assert.notOk(isRitual(ritual))
 
     assert.deepEqual(errorParser(isRitual), ['data.quorum: is the wrong type'])
@@ -53,7 +52,7 @@ describe('dark-crystal/ritual schema', context => {
   })
 
   context('invalid shards', assert => {
-    ritual.shards = "3"
+    ritual.shards = '3'
     assert.notOk(isRitual(ritual))
 
     assert.deepEqual(errorParser(isRitual), ['data.shards: is the wrong type'])

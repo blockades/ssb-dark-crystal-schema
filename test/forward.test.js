@@ -42,4 +42,3 @@ describe('dark-crystal/forward schema', context => {
     assert.deepEqual(errorParser(isForward), ['data.recps.0: no (or more than one) schemas match', 'data.recps.1: no (or more than one) schemas match'])
   })
 })
-

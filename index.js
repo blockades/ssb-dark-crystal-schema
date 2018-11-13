@@ -1,7 +1,6 @@
 const validators = require('./validators')
-const { currentVersion }= require('./schemas')
 
-module.exports = {
-  ...validators,
-  SCHEMA_VERSION: "1.0.0"
-}
+module.exports = Object.assign(
+  { SCHEMA_VERSION: '1.0.0' }, // current schema version
+  validators
+)

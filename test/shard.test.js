@@ -36,7 +36,7 @@ describe('dark-crystal/shard schema', context => {
   })
 
   context('invalid recps', assert => {
-    shard.recps = ['thisisnotafeedId','nor is this']
+    shard.recps = ['thisisnotafeedId', 'nor is this']
     assert.notOk(isShard(shard))
 
     assert.deepEqual(errorParser(isShard), ['data.recps.0: no (or more than one) schemas match', 'data.recps.1: no (or more than one) schemas match'])
