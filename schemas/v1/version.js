@@ -1,2 +1,2 @@
-const SCHEMA_VERSION = '1.0.0'
-module.exports = SCHEMA_VERSION
+// SCHEMA_VERSION
+module.exports = '1.0.0'

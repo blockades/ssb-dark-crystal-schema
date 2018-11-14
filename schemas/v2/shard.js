@@ -1,6 +1,9 @@
 const definitions = require('ssb-schema-definitions')
 const SCHEMA_VERSION = require('./version')
 
+// NOTE - this is currently identical to v1/shard.js
+// In the near future it will be changed though
+
 module.exports = {
   $schema: 'http://json-schema.org/schema#',
   type: 'object',

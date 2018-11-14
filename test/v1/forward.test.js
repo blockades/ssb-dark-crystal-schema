@@ -1,13 +1,14 @@
 const fs = require('fs')
+const { join } = require('path')
 const { describe } = require('tape-plus')
-const { isForward } = require('../')
-const errorParser = require('../lib/errorParser')
+const errorParser = require('../../lib/errorParser')
+const { isForward } = require('../..')
 
 describe('dark-crystal/forward schema', context => {
   let forward
 
   context.beforeEach(c => {
-    forward = JSON.parse(fs.readFileSync('./test/fixtures/forward.json', 'utf8'))
+    forward = JSON.parse(fs.readFileSync(join(__dirname, 'fixtures/forward.json'), 'utf8'))
   })
 
   context('forward is valid', assert => {

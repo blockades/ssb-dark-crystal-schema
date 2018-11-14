@@ -1,19 +1,18 @@
 const fs = require('fs')
+const { join } = require('path')
 const { describe } = require('tape-plus')
-const errorParser = require('../lib/errorParser')
-const { isRoot } = require('../')
+const errorParser = require('../../lib/errorParser')
+const { isRoot } = require('../..')
 
 describe('dark-crystal/root schema', context => {
   let root
 
   context.beforeEach(c => {
-    root = JSON.parse(fs.readFileSync('./test/fixtures/root.json', 'utf8'))
+    root = JSON.parse(fs.readFileSync(join(__dirname, 'fixtures/root.json'), 'utf8'))
   })
 
   context('root is valid', assert => {
     assert.ok(isRoot(root))
-    console.log(isRoot.errors)
-    console.log(root)
   })
 
   context('invalid type', assert => {

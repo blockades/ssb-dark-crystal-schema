@@ -1,13 +1,14 @@
 const fs = require('fs')
+const { join } = require('path')
 const { describe } = require('tape-plus')
-const errorParser = require('../lib/errorParser')
-const { isShard } = require('../')
+const errorParser = require('../../lib/errorParser')
+const { isShard } = require('../..')
 
 describe('dark-crystal/shard schema', context => {
   let shard
 
   context.beforeEach(c => {
-    shard = JSON.parse(fs.readFileSync('./test/fixtures/shard.json', 'utf8'))
+    shard = JSON.parse(fs.readFileSync(join(__dirname, 'fixtures/shard.json'), 'utf8'))
   })
 
   context('shard is valid', assert => {

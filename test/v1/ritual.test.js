@@ -1,21 +1,17 @@
 const fs = require('fs')
+const { join } = require('path')
 const { describe } = require('tape-plus')
-const errorParser = require('../lib/errorParser')
-const { isRitual } = require('../')
+const errorParser = require('../../lib/errorParser')
+const { isRitual } = require('../..')
 
 describe('dark-crystal/ritual schema', context => {
   let ritual
 
   context.beforeEach(c => {
-    ritual = JSON.parse(fs.readFileSync('./test/fixtures/ritual.json', 'utf8'))
+    ritual = JSON.parse(fs.readFileSync(join(__dirname, 'fixtures/ritual.json'), 'utf8'))
   })
 
   context('is valid', assert => {
-    assert.ok(isRitual(ritual))
-  })
-
-  context('valid version', assert => {
-    ritual.version = '2.0.0'
     assert.ok(isRitual(ritual))
   })
 
