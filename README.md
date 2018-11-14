@@ -7,7 +7,7 @@ All message will contain a version number of the schema.
 ## API
 
 ```js
-const { isRoot, isRitual, isShard } = require('ssb-dark-ritual-schema')
+const { isRoot, isRitual, isShard, isForward } = require('ssb-dark-ritual-schema')
 
 isRitual(ritualMessage)
 // => true
@@ -86,3 +86,18 @@ Example:
   "recps": ["@LA9HYf5rnUJFHHTklKXLLRyrEytayjbFZRo76Aj/qKs=.ed25519", "@95WQAJ1XZju4YFpLib3JYdbx//BCtr5dq3bR9jPxYWs=.ed25519"]
 }
 ```
+
+### `Forward`
+
+This message will be published in order to send a shard to a feedId other than that which authored the shard message. It will be a private message which exactly two recipients, one of whom will be the author of the message.  It will also contain:
+- a reference to the associated `root` message
+- an unencrypted shard
+
+Example:
+{
+  "type": "dark-crystal/forward",
+  "version": "1",
+  "root": "%viiJnnnXjNkfCALivEZbrDe8UndkCCCNQ/CgBOWgJLw=.sha256",
+  "shard": "802Eh139UbZ2JYuQI9FSJ3lBEV7wcePeFc/Eeo0t9kfrNp+fg9bZio76RTJOM7pVEo1AUJFFupGStwNHtXmcQ9msnvnvR1RW5qLxX3luNMem45jcDLDCwPU237TJFIqYbUbd/DeI3YFiFH+AMU8XAPTV9scukFMV",
+  "recps": ["@LA9HYf5rnUJFHHTklKXLLRyrEytayjbFZRo76Aj/qKs=.ed25519", "@95WQAJ1XZju4YFpLib3JYdbx//BCtr5dq3bR9jPxYWs=.ed25519"]
+}
