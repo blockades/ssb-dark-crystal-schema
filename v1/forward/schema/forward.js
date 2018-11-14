@@ -4,7 +4,7 @@ const SCHEMA_VERSION = require('../../version')
 module.exports = {
   $schema: 'http://json-schema.org/schema#',
   type: 'object',
-  required: ['type', 'version', 'root', 'shard'],
+  required: ['type', 'version', 'root', 'shard', 'recps'],
   properties: {
     type: {
       type: 'string',
