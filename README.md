@@ -94,6 +94,8 @@ This message will be published in order to send a shard to a feedId other than t
 - an unencrypted shard
 
 Example:
+
+```js
 {
   "type": "dark-crystal/forward",
   "version": "1",
@@ -101,3 +103,4 @@ Example:
   "shard": "802Eh139UbZ2JYuQI9FSJ3lBEV7wcePeFc/Eeo0t9kfrNp+fg9bZio76RTJOM7pVEo1AUJFFupGStwNHtXmcQ9msnvnvR1RW5qLxX3luNMem45jcDLDCwPU237TJFIqYbUbd/DeI3YFiFH+AMU8XAPTV9scukFMV",
   "recps": ["@LA9HYf5rnUJFHHTklKXLLRyrEytayjbFZRo76Aj/qKs=.ed25519", "@95WQAJ1XZju4YFpLib3JYdbx//BCtr5dq3bR9jPxYWs=.ed25519"]
 }
+```
