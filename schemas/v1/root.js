@@ -1,33 +1,31 @@
 const definitions = require('ssb-schema-definitions')
-const SCHEMA_VERSION = require('../../version')
+const SCHEMA_VERSION = require('./version')
 
 module.exports = {
   $schema: 'http://json-schema.org/schema#',
   type: 'object',
-  required: ['type', 'version', 'root', 'shard', 'recps'],
+  required: ['type', 'version', 'name', 'recps'],
   properties: {
     type: {
       type: 'string',
-      pattern: '^dark-crystal/forward'
+      pattern: '^dark-crystal/root$'
     },
     version: {
       type: 'string',
       pattern: `^${SCHEMA_VERSION}$`
     },
-    shard: { type: 'string' },
-    root: { $ref: '#/definitions/messageId' },
+    name: { type: 'string' },
     recps: {
       type: 'array',
-      maxItems: 2,
-      minItems: 2,
+      minItems: 1,
+      maxItems: 1,
       items: {
         oneOf: [
           { $ref: '#/definitions/feedId' },
           { $ref: '#/definitions/mentions/feed' }
         ]
       }
-    },
-    gossip: { $ref: '#/definitions/blobId' }
+    }
   },
   definitions: definitions
 }

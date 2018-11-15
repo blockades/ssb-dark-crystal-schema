@@ -1,19 +1,17 @@
 const fs = require('fs')
+const { join } = require('path')
 const { describe } = require('tape-plus')
-const { isRitual } = require('../v1/')
-const errorParser = require('../v1/lib/errorParser')
+const errorParser = require('../../lib/errorParser')
+const { isRitual } = require('../..')
 
 describe('dark-crystal/ritual schema', context => {
   let ritual
 
   context.beforeEach(c => {
-    ritual = JSON.parse(fs.readFileSync('./test/fixtures/ritual.json', 'utf8'))
+    ritual = JSON.parse(fs.readFileSync(join(__dirname, 'fixtures/ritual.json'), 'utf8'))
   })
 
   context('is valid', assert => {
-    assert.ok(isRitual(ritual))
-
-    ritual.recps.map(recp => { return { link: recp, name: 'Bobo the Clown' } })
     assert.ok(isRitual(ritual))
   })
 
@@ -25,7 +23,7 @@ describe('dark-crystal/ritual schema', context => {
 
   context('can attach errors to tested object', assert => {
     ritual.type = 'dark-smchystal/ritual'
-    assert.notOk(isRitual(ritual, {attachErrors: true}))
+    assert.notOk(isRitual(ritual, { attachErrors: true }))
     assert.deepEqual(errorParser(ritual), ['data.type: pattern mismatch'])
   })
 
@@ -33,11 +31,11 @@ describe('dark-crystal/ritual schema', context => {
     ritual.version = 1
     assert.notOk(isRitual(ritual))
 
-    assert.deepEqual(errorParser(isRitual), ['data.version: is the wrong type'])
+    assert.deepEqual(errorParser(isRitual), ['data.version: is not a valid version'])
   })
 
   context('invalid quorum', assert => {
-    ritual.quorum = "3"
+    ritual.quorum = '3'
     assert.notOk(isRitual(ritual))
 
     assert.deepEqual(errorParser(isRitual), ['data.quorum: is the wrong type'])
@@ -50,7 +48,7 @@ describe('dark-crystal/ritual schema', context => {
   })
 
   context('invalid shards', assert => {
-    ritual.shards = "3"
+    ritual.shards = '3'
     assert.notOk(isRitual(ritual))
 
     assert.deepEqual(errorParser(isRitual), ['data.shards: is the wrong type'])
