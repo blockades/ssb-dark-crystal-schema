@@ -68,6 +68,6 @@ describe('dark-crystal/ritual schema', context => {
     ritual.recps = ['thisisnotafeedId']
     assert.notOk(isRitual(ritual))
 
-    assert.deepEqual(errorParser(isRitual), ['data.recps: referenced schema does not match'])
+    assert.deepEqual(errorParser(isRitual), ['data.recps.0: referenced schema does not match'])
   })
 })

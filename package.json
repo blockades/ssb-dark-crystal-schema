@@ -4,7 +4,7 @@
   "description": "JSON schemas and validation for secure scuttlebutt message types for Dark Crystal",
   "main": "index.js",
   "scripts": {
-    "test": "tape 'test/**/*.test.js' | tap-diff",
+    "test": "tape 'test/**/*.test.js' | tap-spec",
     "lint": "standard --fix"
   },
   "repository": {
@@ -39,7 +39,7 @@
   "devDependencies": {
     "scuttle-testbot": "^1.1.6",
     "standard": "^12.0.1",
-    "tap-diff": "^0.1.1",
+    "tap-spec": "^5.0.0",
     "tape": "^4.9.1",
     "tape-plus": "^1.0.0"
   }

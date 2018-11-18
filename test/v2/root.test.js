@@ -40,6 +40,6 @@ describe('dark-crystal/root schema', context => {
 
     root.recps = ['thisisnotafeedId']
     assert.notOk(isRoot(root))
-    assert.deepEqual(['data.recps.0: no (or more than one) schemas match'], errorParser(isRoot))
+    assert.deepEqual(['data.recps.0: referenced schema does not match'], errorParser(isRoot))
   })
 })

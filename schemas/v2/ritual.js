@@ -4,7 +4,7 @@ const SCHEMA_VERSION = require('./version')
 module.exports = {
   $schema: 'http://json-schema.org/schema#',
   type: 'object',
-  required: ['type', 'version', 'root', 'quorum', 'shards', 'tool'],
+  required: ['type', 'version', 'root', 'quorum', 'shards', 'tool', 'recps'],
   properties: {
     type: {
       type: 'string',
@@ -24,7 +24,12 @@ module.exports = {
       minimum: 2
     },
     tool: { type: 'string' },
-    recps: { $ref: '#/definitions/recps' }
+    recps: {
+      type: 'array',
+      minItems: 1,
+      maxItems: 1,
+      items: { $ref: '#/definitions/feedId' }
+    }
   },
-  definitions: definitions
+  definitions
 }

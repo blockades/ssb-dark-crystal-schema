@@ -40,6 +40,6 @@ describe('dark-crystal/forward schema', context => {
     forward.recps = ['thisisnotafeedId', 'nor is this']
     assert.notOk(isForward(forward))
 
-    assert.deepEqual(errorParser(isForward), ['data.recps.0: no (or more than one) schemas match', 'data.recps.1: no (or more than one) schemas match'])
+    assert.deepEqual(errorParser(isForward), [ 'data.recps.0: referenced schema does not match', 'data.recps.1: referenced schema does not match' ])
   })
 })

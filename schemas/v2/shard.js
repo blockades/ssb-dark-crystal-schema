@@ -20,13 +20,8 @@ module.exports = {
       type: 'array',
       maxItems: 2,
       minItems: 2,
-      items: {
-        oneOf: [
-          { $ref: '#/definitions/feedId' },
-          { $ref: '#/definitions/mentions/feed' }
-        ]
-      }
+      items: { $ref: '#/definitions/feedId' }
     }
   },
-  definitions: definitions
+  definitions
 }
