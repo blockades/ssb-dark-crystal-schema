@@ -1,20 +1,10 @@
 const fs = require('fs')
 const { join } = require('path')
 const { describe } = require('tape-plus')
-// const errorParser = require('../../lib/errorParser')
-// const { isShard } = require('../..')
-const isShard = buildTempIsShard() // TODO delete this later!
+const errorParser = require('../../lib/errorParser')
+const { isShard } = require('../..')
 
-function buildTempIsShard () {
-  // extend the schemas with a hypothetical v2
-  const schemas = Object.assign({}, require('../../schemas'), {
-    [require('../../schemas/v2/version')]: require('../../schemas/v2')
-  })
-  const validate = require('ssb-schema-validation')
-  return validate(schemas).with('shard')
-}
-
-describe('dark-crystal/shard schema v2', context => {
+describe('dark-crystal/shard schema', context => {
   let shard
 
   context.beforeEach(c => {
@@ -25,8 +15,31 @@ describe('dark-crystal/shard schema v2', context => {
     assert.ok(isShard(shard))
   })
 
-  context('v1 shard is still valid', assert => {
-    const oldShard = JSON.parse(fs.readFileSync(join(__dirname, '../v1/fixtures/shard.json'), 'utf8'))
-    assert.ok(isShard(oldShard))
+  context('invalid type', assert => {
+    shard.type = 'dark-smchystal/shard'
+    assert.notOk(isShard(shard))
+
+    assert.deepEqual(errorParser(isShard), ['data.type: pattern mismatch'])
+  })
+
+  context('invalid version', assert => {
+    shard.version = 1
+    assert.notOk(isShard(shard))
+
+    assert.deepEqual(errorParser(isShard), ['data.version: is not a valid version'])
+  })
+
+  context('invalid shard', assert => {
+    shard.shard = 'foo'
+    assert.notOk(isShard(shard))
+
+    assert.deepEqual(errorParser(isShard), ['data.shard: referenced schema does not match'])
+  })
+
+  context('invalid recps', assert => {
+    shard.recps = ['thisisnotafeedId', 'nor is this']
+    assert.notOk(isShard(shard))
+
+    assert.deepEqual(errorParser(isShard), ['data.recps.0: no (or more than one) schemas match', 'data.recps.1: no (or more than one) schemas match'])
   })
 })
