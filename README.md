@@ -91,6 +91,7 @@ Example:
 
 This message will be published in order to send a shard to a feedId other than that which authored the shard message. It will be a private message which exactly two recipients, one of whom will be the author of the message.  It will also contain:
 - a reference to the associated `root` message
+- the version number of the shard it contains
 - an unencrypted shard
 
 Example:

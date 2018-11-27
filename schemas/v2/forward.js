@@ -15,6 +15,7 @@ module.exports = {
       type: 'string',
       pattern: `^${SCHEMA_VERSION}$`
     },
+    shardVersion: { type: 'string' },
     shard: { type: 'string' },
     root: { $ref: '#/definitions/messageId' },
     recps: {
