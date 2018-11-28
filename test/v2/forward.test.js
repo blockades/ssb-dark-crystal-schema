@@ -42,4 +42,16 @@ describe('dark-crystal/forward schema', context => {
 
     assert.deepEqual(errorParser(isForward), [ 'data.recps.0: referenced schema does not match', 'data.recps.1: referenced schema does not match' ])
   })
+
+  context('missing shardVersion', assert => {
+    delete forward.shardVersion
+    assert.notOk(isForward(forward))
+    assert.deepEqual(errorParser(isForward), [ 'data.shardVersion: is required' ])
+  })
+
+  context('invalid shardVersion', assert => {
+    forward.shardVersion = 'dog'
+    assert.notOk(isForward(forward))
+    assert.deepEqual(errorParser(isForward), [ 'data.shardVersion: pattern mismatch' ])
+  })
 })
