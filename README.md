@@ -39,7 +39,7 @@ Example:
 ```js
 {
   "type": "dark-crystal/root",
-  "version": "1",
+  "version": "2.0.0",
   "name": "directions to treasure",
   "recps": ["@95WQAJ1XZju4YFpLib3JYdbx//BCtr5dq3bR9jPxYWs=.ed25519"]
 }
@@ -62,7 +62,7 @@ Example:
 ```js
 {
   "type": "dark-crystal/ritual",
-  "version": "1",
+  "version": "2.0.0",
   "root": "%viiJnnnXjNkfCALivEZbrDe8UndkCCCNQ/CgBOWgJLw=.sha256",
   "quorum":2,
   "shards":5,
@@ -80,7 +80,7 @@ Example:
 ```js
 {
   "type": "dark-crystal/shard",
-  "version": "1",
+  "version": "2.0.0",
   "root": "%viiJnnnXjNkfCALivEZbrDe8UndkCCCNQ/CgBOWgJLw=.sha256",
   "shard": "Yn3foQzIrckEh139UbZ2JYuQI9FSJ3lBEV7wcePeFc/Eeo0t9kfrNp+9+bZio76RTJOM7pVEo1AUJFFupGStwNHtXmcQ9msnvnvR1RW5qLxX3luNMe+m45jcDLDCwPU237TJFIqYbUbd/DeI3YFiFH+AMU8XAPTV9scukFMVSTDrr/Li6fI=.box",
   "recps": ["@LA9HYf5rnUJFHHTklKXLLRyrEytayjbFZRo76Aj/qKs=.ed25519", "@95WQAJ1XZju4YFpLib3JYdbx//BCtr5dq3bR9jPxYWs=.ed25519"]
@@ -99,9 +99,10 @@ Example:
 ```js
 {
   "type": "dark-crystal/forward",
-  "version": "1",
+  "version": "2.0.0",
   "root": "%viiJnnnXjNkfCALivEZbrDe8UndkCCCNQ/CgBOWgJLw=.sha256",
   "shard": "802Eh139UbZ2JYuQI9FSJ3lBEV7wcePeFc/Eeo0t9kfrNp+fg9bZio76RTJOM7pVEo1AUJFFupGStwNHtXmcQ9msnvnvR1RW5qLxX3luNMem45jcDLDCwPU237TJFIqYbUbd/DeI3YFiFH+AMU8XAPTV9scukFMV",
+  "shardVersion": '1.0.0,
   "recps": ["@LA9HYf5rnUJFHHTklKXLLRyrEytayjbFZRo76Aj/qKs=.ed25519", "@95WQAJ1XZju4YFpLib3JYdbx//BCtr5dq3bR9jPxYWs=.ed25519"]
 }
 ```
