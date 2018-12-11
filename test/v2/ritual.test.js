@@ -57,13 +57,6 @@ describe('dark-crystal/ritual schema', context => {
     assert.notOk(isRitual(ritual))
   })
 
-  context('invalid tool', assert => {
-    ritual.tool = { library: 'secrets.js' }
-    assert.notOk(isRitual(ritual))
-
-    assert.deepEqual(errorParser(isRitual), ['data.tool: is the wrong type'])
-  })
-
   context('invalid recps', assert => {
     ritual.recps = ['thisisnotafeedId']
     assert.notOk(isRitual(ritual))
