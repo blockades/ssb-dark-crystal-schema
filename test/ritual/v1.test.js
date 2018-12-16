@@ -4,11 +4,11 @@ const { describe } = require('tape-plus')
 const errorParser = require('../../lib/errorParser')
 const { isRitual } = require('../..')
 
-describe('dark-crystal/ritual schema', context => {
+describe('dark-crystal/ritual v1 schema', context => {
   let ritual
 
   context.beforeEach(c => {
-    ritual = JSON.parse(fs.readFileSync(join(__dirname, 'fixtures/ritual.json'), 'utf8'))
+    ritual = JSON.parse(fs.readFileSync(join(__dirname, 'v1.json'), 'utf8'))
   })
 
   context('is valid', assert => {
@@ -31,7 +31,7 @@ describe('dark-crystal/ritual schema', context => {
     ritual.version = 1
     assert.notOk(isRitual(ritual))
 
-    assert.deepEqual(errorParser(isRitual), ['data.version: is not a valid version'])
+    assert.deepEqual(errorParser(isRitual), ['data.version: No schemas match version 1'])
   })
 
   context('invalid quorum', assert => {
@@ -57,10 +57,17 @@ describe('dark-crystal/ritual schema', context => {
     assert.notOk(isRitual(ritual))
   })
 
+  context('invalid tool', assert => {
+    ritual.tool = { library: 'secrets.js' }
+    assert.notOk(isRitual(ritual))
+
+    assert.deepEqual(errorParser(isRitual), ['data.tool: is the wrong type'])
+  })
+
   context('invalid recps', assert => {
     ritual.recps = ['thisisnotafeedId']
     assert.notOk(isRitual(ritual))
 
-    assert.deepEqual(errorParser(isRitual), ['data.recps.0: referenced schema does not match'])
+    assert.deepEqual(errorParser(isRitual), ['data.recps: referenced schema does not match'])
   })
 })

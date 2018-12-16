@@ -1,7 +1,5 @@
 const definitions = require('ssb-schema-definitions')
 
-const SCHEMA_VERSION = require('./version')
-
 module.exports = {
   $schema: 'http://json-schema.org/schema#',
   type: 'object',
@@ -13,7 +11,7 @@ module.exports = {
     },
     version: {
       type: 'string',
-      pattern: `^${SCHEMA_VERSION}$`
+      pattern: '1.0.0'
     },
     shareVersion: {
       type: 'string',

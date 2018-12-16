@@ -34,7 +34,7 @@
     "ssb-msg-content": "^1.0.1",
     "ssb-ref": "^2.11.1",
     "ssb-schema-definitions": "^1.0.6",
-    "ssb-schema-validation": "^1.0.0"
+    "ssb-schema-validation": "ssbc/ssb-schema-validation#simpler_validator"
   },
   "devDependencies": {
     "scuttle-testbot": "^1.1.6",
