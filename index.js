@@ -1,10 +1,11 @@
-const validators = require('./validators')
+const Validator = require('ssb-schema-validation')
 const errorParser = require('./lib/errorParser')
+const schemas = require('./schemas')
 
-module.exports = Object.assign(
-  {
-    SCHEMA_VERSION: '2.0.0', // current schema version
-    errorParser
-  },
-  validators
-)
+module.exports = {
+  isRoot: Validator(schemas.root),
+  isRitual: Validator(schemas.ritual),
+  isShard: Validator(schemas.shard),
+  isForward: Validator(schemas.forward),
+  errorParser
+}

@@ -1,10 +1,9 @@
 const definitions = require('ssb-schema-definitions')
-const SCHEMA_VERSION = require('./version')
 
 module.exports = {
   $schema: 'http://json-schema.org/schema#',
   type: 'object',
-  required: ['type', 'version', 'root', 'quorum', 'shards', 'recps'],
+  required: ['type', 'version', 'root', 'quorum', 'shards', 'tool'],
   properties: {
     type: {
       type: 'string',
@@ -12,7 +11,7 @@ module.exports = {
     },
     version: {
       type: 'string',
-      pattern: `^${SCHEMA_VERSION}$`
+      pattern: '^1.0.0$'
     },
     root: { $ref: '#/definitions/messageId' },
     quorum: {
@@ -23,12 +22,10 @@ module.exports = {
       type: 'integer',
       minimum: 2
     },
-    recps: {
-      type: 'array',
-      minItems: 1,
-      maxItems: 1,
-      items: { $ref: '#/definitions/feedId' }
-    }
+    tool: { type: 'string' },
+    // tool should actually === secrets.js-grempe
+    // otherwise we can't recombine!
+    recps: { $ref: '#/definitions/recps' }
   },
-  definitions
+  definitions: definitions
 }

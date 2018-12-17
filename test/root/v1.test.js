@@ -4,11 +4,11 @@ const { describe } = require('tape-plus')
 const errorParser = require('../../lib/errorParser')
 const { isRoot } = require('../..')
 
-describe('dark-crystal/root schema', context => {
+describe('dark-crystal/root v1 schema', context => {
   let root
 
   context.beforeEach(c => {
-    root = JSON.parse(fs.readFileSync(join(__dirname, 'fixtures/root.json'), 'utf8'))
+    root = JSON.parse(fs.readFileSync(join(__dirname, 'v1.json'), 'utf8'))
   })
 
   context('root is valid', assert => {
@@ -24,7 +24,7 @@ describe('dark-crystal/root schema', context => {
   context('invalid version', assert => {
     root.version = 1
     assert.notOk(isRoot(root))
-    assert.deepEqual(['data.version: is not a valid version'], errorParser(isRoot))
+    assert.deepEqual(['data.version: No schemas match version 1'], errorParser(isRoot))
   })
 
   context('invalid name', assert => {

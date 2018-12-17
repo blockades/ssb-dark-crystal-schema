@@ -4,11 +4,11 @@ const { describe } = require('tape-plus')
 const errorParser = require('../../lib/errorParser')
 const { isForward } = require('../..')
 
-describe('dark-crystal/forward schema', context => {
+describe('dark-crystal/forward v1 schema', context => {
   let forward
 
   context.beforeEach(c => {
-    forward = JSON.parse(fs.readFileSync(join(__dirname, 'fixtures/forward.json'), 'utf8'))
+    forward = JSON.parse(fs.readFileSync(join(__dirname, 'v1.json'), 'utf8'))
   })
 
   context('forward is valid', assert => {
@@ -26,7 +26,7 @@ describe('dark-crystal/forward schema', context => {
     forward.version = 1
     assert.notOk(isForward(forward))
 
-    assert.deepEqual(errorParser(isForward), ['data.version: is not a valid version'])
+    assert.deepEqual(errorParser(isForward), ['data.version: No schemas match version 1'])
   })
 
   context('invalid shard', assert => {

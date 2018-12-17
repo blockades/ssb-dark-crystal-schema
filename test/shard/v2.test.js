@@ -4,11 +4,11 @@ const { describe } = require('tape-plus')
 const errorParser = require('../../lib/errorParser')
 const { isShard } = require('../..')
 
-describe('dark-crystal/shard schema', context => {
+describe('dark-crystal/shard v2 schema', context => {
   let shard
 
   context.beforeEach(c => {
-    shard = JSON.parse(fs.readFileSync(join(__dirname, 'fixtures/shard.json'), 'utf8'))
+    shard = JSON.parse(fs.readFileSync(join(__dirname, 'v2.json'), 'utf8'))
   })
 
   context('shard is valid', assert => {
@@ -26,7 +26,7 @@ describe('dark-crystal/shard schema', context => {
     shard.version = 1
     assert.notOk(isShard(shard))
 
-    assert.deepEqual(errorParser(isShard), ['data.version: is not a valid version'])
+    assert.deepEqual(errorParser(isShard), ['data.version: No schemas match version 1'])
   })
 
   context('invalid shard', assert => {
