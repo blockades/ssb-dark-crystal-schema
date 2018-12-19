@@ -1,0 +1,10 @@
+{
+  "type": "invite-reply",
+  "version": "1",
+  "accept": true,
+  "root": "%viiJnnnXjNkfCALivEZbrDe8UndkCCCNQ/CgBOWgJLw=.sha256",
+  "branch": "%g1gbRKarJT4au9De2r4aJ+MghFSAyQzjfVnnxtJNBBw=.sha256",
+  "recps": ["@95WQAJ1XZju4YFpLib3JYdbx//BCtr5dq3bR9jPxYWs=.ed25519", "@95WQAJ1XZju4YFpLib3JYdbx//BCtr5dq3bR9jPxYWs=.ed25519"],
+  "body": "THE UNBOXED SHARD!!!",
+  "shareVersion": "2.0.0"
+}
