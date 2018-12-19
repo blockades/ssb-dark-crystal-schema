@@ -10,6 +10,12 @@ module.exports = {
     require('./shard/v1'),
     require('./shard/v2')
   ],
+  request: [
+    require('./request/v1')
+  ],
+  reply: [
+    require('./reply/v1')
+  ],
   forward: [
     require('./forward/v1')
   ]

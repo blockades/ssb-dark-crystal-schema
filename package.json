@@ -31,6 +31,8 @@
   "homepage": "https://github.com/blockades/ssb-dark-crystal-schema#readme",
   "dependencies": {
     "is-my-json-valid": "^2.17.2",
+    "lodash.merge": "^4.6.1",
+    "ssb-invite-schema": "0.0.10",
     "ssb-msg-content": "^1.0.1",
     "ssb-ref": "^2.11.1",
     "ssb-schema-definitions": "^1.0.6",

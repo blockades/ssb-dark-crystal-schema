@@ -6,6 +6,8 @@ module.exports = {
   isRoot: Validator(schemas.root),
   isRitual: Validator(schemas.ritual),
   isShard: Validator(schemas.shard),
+  isRequest: Validator(schemas.request),
+  isReply: Validator(schemas.reply),
   isForward: Validator(schemas.forward),
   errorParser
 }
