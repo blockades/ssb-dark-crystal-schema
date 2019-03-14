@@ -2,5 +2,6 @@
   "type": "invite",
   "version": "1",
   "root": "%viiJnnnXjNkfCALivEZbrDe8UndkCCCNQ/CgBOWgJLw=.sha256",
-  "recps": ["@95WQAJ1XZju4YFpLib3JYdbx//BCtr5dq3bR9jPxYWs=.ed25519", "@95WQAJ1XZju4YFpLib3JYdbx//BCtr5dq3bR9jPxYWs=.ed25519"]
+  "recps": ["@95WQAJ1XZju4YFpLib3JYdbx//BCtr5dq3bR9jPxYWs=.ed25519", "@95WQAJ1XZju4YFpLib3JYdbx//BCtr5dq3bR9jPxYWs=.ed25519"],
+  "ephPublicKey": "lOOm4IHFQEEXp1oGW1p3dlF2pbJL/hvqQ/4QED1x3EQ=.curve25519"
 }
