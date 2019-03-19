@@ -40,12 +40,18 @@ describe('dark-crystal/shard v2 schema', context => {
     shard.recps = ['thisisnotafeedId', 'nor is this']
     assert.notOk(isShard(shard))
 
-    assert.deepEqual(errorParser(isShard), [ 'data.recps.0: referenced schema does not match', 'data.recps.1: referenced schema does not match' ])
+    assert.deepEqual(errorParser(isShard), [
+      'data.recps.0: referenced schema does not match',
+      'data.recps.1: referenced schema does not match'
+    ])
   })
 
   context('invalid attachment blob reference', assert => {
-    shard.attachment = 'not a blobId'
+    shard.attachment = { name: 123.45, reference: "not a blobId" }
     assert.notOk(isShard(shard))
-    assert.deepEqual(errorParser(isShard), [ 'data.attachment: referenced schema does not match' ])
+    assert.deepEqual(errorParser(isShard), [
+      'data.attachment.name: is the wrong type',
+      'data.attachment.reference: referenced schema does not match'
+    ])
   })
 })
