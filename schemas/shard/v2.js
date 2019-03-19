@@ -20,7 +20,8 @@ module.exports = {
       maxItems: 2,
       minItems: 2,
       items: { $ref: '#/definitions/feedId' }
-    }
+    },
+    attachment: { $ref: '#/definitions/blobId' }
   },
   definitions
 }
