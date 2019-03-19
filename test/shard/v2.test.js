@@ -47,11 +47,11 @@ describe('dark-crystal/shard v2 schema', context => {
   })
 
   context('invalid attachment blob reference', assert => {
-    shard.attachment = { name: 123.45, reference: "not a blobId" }
+    shard.attachment = { name: 123.45, link: "not a blobId" }
     assert.notOk(isShard(shard))
     assert.deepEqual(errorParser(isShard), [
       'data.attachment.name: is the wrong type',
-      'data.attachment.reference: referenced schema does not match'
+      'data.attachment.link: referenced schema does not match'
     ])
   })
 })
