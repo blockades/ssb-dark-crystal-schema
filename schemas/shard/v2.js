@@ -23,10 +23,10 @@ module.exports = {
     },
     attachment: {
       type: 'object',
-      required: ['name', 'reference'],
+      required: ['name', 'link'],
       properties: {
         name: { type: 'string' },
-        reference: { $ref: '#/definitions/blobId' }
+        link: { $ref: '#/definitions/blobId' }
       }
     }
   },
