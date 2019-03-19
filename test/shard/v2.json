@@ -7,5 +7,8 @@
     "@95WQAJ1XZju4YFpLib3JYdbx//BCtr5dq3bR9jPxYWs=.ed25519",
     "@95WQAJ1XZju4YFpLib3JYdbx//BCtr5dq3bR9jPxYWs=.ed25519"
   ],
-  "attachment": "&ERGA0oJCELz2s4sr47f75iXZComB/2akzZq+IpcuqDs=.sha256"
+  "attachment": {
+    "name": "gossip.json",
+    "reference": "&ERGA0oJCELz2s4sr47f75iXZComB/2akzZq+IpcuqDs=.sha256"
+  }
 }
