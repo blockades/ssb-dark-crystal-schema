@@ -18,5 +18,8 @@ module.exports = {
   ],
   forward: [
     require('./forward/v1')
+  ],
+  forwardRequest: [
+    require('./forward-request/v1')
   ]
 }
