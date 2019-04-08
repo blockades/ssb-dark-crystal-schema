@@ -7,7 +7,7 @@ All message will contain a version number of the schema.
 ## API
 
 ```js
-const { isRoot, isRitual, isShard, isForward } = require('ssb-dark-ritual-schema')
+const { isRoot, isRitual, isShard, isForward, isForwardRequest } = require('ssb-dark-ritual-schema')
 
 isRitual(ritualMessage)
 // => true
@@ -87,12 +87,14 @@ Example:
 }
 ```
 
-### `Forward`
+### `forward`
 
 This message will be published in order to send a shard to a feedId other than that which authored the shard message. It will be a private message which exactly two recipients, one of whom will be the author of the message.  It will also contain:
 - a reference to the associated `root` message
 - the version number of the shard it contains
 - an unencrypted shard
+- the id of the shard message
+- the id of the relevant `forward-request`, if present.
 
 Example:
 
@@ -102,7 +104,27 @@ Example:
   "version": "2.0.0",
   "root": "%viiJnnnXjNkfCALivEZbrDe8UndkCCCNQ/CgBOWgJLw=.sha256",
   "shard": "802Eh139UbZ2JYuQI9FSJ3lBEV7wcePeFc/Eeo0t9kfrNp+fg9bZio76RTJOM7pVEo1AUJFFupGStwNHtXmcQ9msnvnvR1RW5qLxX3luNMem45jcDLDCwPU237TJFIqYbUbd/DeI3YFiFH+AMU8XAPTV9scukFMV",
+  "shardId": "%qlZqgb9lpX1vPpnS8hkKxdAwqQCM80GVcjW9ZHDH8mM=.sha256",
+  "requestId": "%GgoAzW2r1sabMBqw3CDiwvUvg9RTB8qyiU57vdtrOzM=.sha256",
   "shareVersion": '1.0.0',
   "recps": ["@LA9HYf5rnUJFHHTklKXLLRyrEytayjbFZRo76Aj/qKs=.ed25519", "@95WQAJ1XZju4YFpLib3JYdbx//BCtr5dq3bR9jPxYWs=.ed25519"]
+}
+```
+
+### `forward-request`
+
+This message is to make a request for a peer to forward you shards authored by another identity (typically your own identity which you have lost the private key to). This will be a private message with exactly two recipients, yourself and the person you are requesting to forward the shards. It will contain the feedId of the owner of the secret (the person who originally published the `shard` messages).
+
+Example:
+
+```js
+{
+  "type": "dark-crystal/forward-request",
+  "version": "1.0.0",
+  "secretOwner": "@vEJe4hdnbHJl549200IytOeA3THbnP0oM+JQtS1u+8o=.ed25519",
+  "recps": [
+    "@95WQAJ1XZju4YFpLib3JYdbx//BCtr5dq3bR9jPxYWs=.ed25519", 
+    "@EMovhfIrFk4NihAKnRNhrfRaqIhBv1Wj8pTxJNgvCCY=.ed25519"
+  ]
 }
 ```
