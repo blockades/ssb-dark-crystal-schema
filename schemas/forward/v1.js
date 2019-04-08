@@ -19,7 +19,8 @@ module.exports = {
     },
     shard: { type: 'string' },
     root: { $ref: '#/definitions/messageId' },
-    branch: { $ref: '#/definitions/branch' },
+    shardId: { $ref: '#/definitions/messageId' },
+    requestId: { $ref: '#/definitions/messageId' },
     recps: {
       type: 'array',
       maxItems: 2,
