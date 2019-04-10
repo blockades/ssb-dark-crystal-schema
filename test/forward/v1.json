@@ -5,5 +5,9 @@
   "root": "%viiJnnnXjNkfCALivEZbrDe8UndkCCCNQ/CgBOWgJLw=.sha256",
   "branch": "%g1gbRKarJT4au9De2r4aJ+MghFSAyQzjfVnnxtJNBBw=.sha256",
   "shard": "801ad2459ecf104fb8e057106830a723dd76c8d528170786232e8b591588778a61c5cd41a81d43b23d27ac78ad152162684",
-  "recps": ["@95WQAJ1XZju4YFpLib3JYdbx//BCtr5dq3bR9jPxYWs=.ed25519", "@95WQAJ1XZju4YFpLib3JYdbx//BCtr5dq3bR9jPxYWs=.ed25519"]
+  "recps": ["@95WQAJ1XZju4YFpLib3JYdbx//BCtr5dq3bR9jPxYWs=.ed25519", "@95WQAJ1XZju4YFpLib3JYdbx//BCtr5dq3bR9jPxYWs=.ed25519"],
+  "attachment": {
+    "name": "gossip.json",
+    "link": "&ERGA0oJCELz2s4sr47f75iXZComB/2akzZq+IpcuqDs=.sha256"
+  }
 }
