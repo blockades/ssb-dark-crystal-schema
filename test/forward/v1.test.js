@@ -54,4 +54,13 @@ describe('dark-crystal/forward v1 schema', context => {
     assert.notOk(isForward(forward))
     assert.deepEqual(errorParser(isForward), [ 'data.shareVersion: pattern mismatch' ])
   })
+
+  context('invalid attachment blob reference', assert => {
+    forward.attachment = { name: 123.45, link: "not a blobId" }
+    assert.notOk(isForward(forward))
+    assert.deepEqual(errorParser(isForward), [
+      'data.attachment.name: is the wrong type',
+      'data.attachment.link: referenced schema does not match'
+    ])
+  })
 })

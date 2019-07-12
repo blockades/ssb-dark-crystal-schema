@@ -25,6 +25,14 @@ module.exports = {
       maxItems: 2,
       minItems: 2,
       items: { $ref: '#/definitions/feedId' }
+    },
+    attachment: {
+      type: 'object',
+      required: ['name', 'link'],
+      properties: {
+        name: { type: 'string' },
+        link: { $ref: '#/definitions/blobId' }
+      }
     }
   },
   definitions

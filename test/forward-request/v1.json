@@ -1,0 +1,9 @@
+{
+  "type": "dark-crystal/forward-request",
+  "version": "1.0.0",
+  "secretOwner": "@vEJe4hdnbHJl549200IytOeA3THbnP0oM+JQtS1u+8o=.ed25519",
+  "recps": [
+    "@95WQAJ1XZju4YFpLib3JYdbx//BCtr5dq3bR9jPxYWs=.ed25519", 
+    "@EMovhfIrFk4NihAKnRNhrfRaqIhBv1Wj8pTxJNgvCCY=.ed25519"
+  ]
+}

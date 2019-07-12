@@ -9,5 +9,6 @@ module.exports = {
   isRequest: Validator(schemas.request),
   isReply: Validator(schemas.reply),
   isForward: Validator(schemas.forward),
+  isForwardRequest: Validator(schemas.forwardRequest),
   errorParser
 }
